@@ -1,16 +1,10 @@
-import { create, verify, getNumericDate } from 'https://deno.land/x/djwt@v2.4/mod.ts';
-import { crypto } from "https://deno.land/std@0.139.0/crypto/mod.ts";
+import { create, verify, getNumericDate } from 'https://deno.land/x/djwt@v2.2/mod.ts';
+import type { Payload, Header } from 'https://deno.land/x/djwt@v2.2/mod.ts';
 
-import type { Payload, Header } from 'https://deno.land/x/djwt@v2.4/mod.ts';
-
-const key = await crypto.subtle.generateKey(
-  { name: "HMAC", hash: "SHA-512"},
-  true,
-  ["sign", "verify"],
-);
+const key: string = "idWJ+JObB2ZFo2H9nTrO2jAljYAwVGvOCngjSbZo3hg=";
 
 const header: Header = {
-	alg: "HS512",
+	alg: "HS256",
 	typ: "JWT"
 }
 
@@ -28,7 +22,7 @@ const jwtService = {
 		return await create(header, payload, key);
 	},
 	validateToken: async (token: string): Promise<Payload> => {
-		return await verify(token, key);
+		return await verify(token, key, "HS256");
 	}
 }
 

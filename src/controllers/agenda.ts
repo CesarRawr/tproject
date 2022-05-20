@@ -10,9 +10,7 @@ const agenda = db.collection<ScheduleSchema>("agenda");
 const agendaController = {
 	// Obtener scheules de un usuario
 	getAgenda: async (ctx: Context) => {
-
 		try {
-
 			const scheduleList: any[] = await agenda.find({}, { noCursorTimeout: false } as any).toArray();
 
 			ctx.response.status = 200;
@@ -32,7 +30,6 @@ const agendaController = {
 	},
 	// Agregar un schedule
 	addSchedule: async (ctx: Context) => {
-
 		const body = ctx.request.body({ type: "json" });
 		const data = await body.value;
 		

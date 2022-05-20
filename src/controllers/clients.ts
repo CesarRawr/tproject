@@ -31,16 +31,16 @@ const clientController = {
 	getClientList: async (ctx: Context) => {
 		// Obteniendo body json
 		const body = ctx.request.body({ type: 'json' }); 
+		console.log(body);
  		const value = await body.value;
  		const clientIds: string[] = value.clients;
 
 		try {
 			const clientList: any[] = [];
-			// No pude hacer un map asincrono :c
 			for(let i = 0; i < clientIds.length; i++) {
 				const client = await clients.findOne({ _id: new Bson.ObjectId(clientIds[i]) }, { noCursorTimeout: false } as any);
 				clientList[i] = client;
-			}				
+			}
 
 			ctx.response.status = 200;
 			ctx.response.body = {

@@ -15,7 +15,7 @@ const tokenVerify = async (ctx: Context, next: Function) => {
 		console.log(err);
 		ctx.response.status = 401;
 		ctx.response.body = {
-			msg: "Invalid token"
+			msg: "Invalid token",
 		}
 	}
 }
