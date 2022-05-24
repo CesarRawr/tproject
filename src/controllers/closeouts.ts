@@ -9,7 +9,6 @@ const closeouts = db.collection<CloseoutSchema>("closeouts");
 // lient Controller
 const closeoutController = {
 	addCloseout: async (ctx: Context) => {
-
 		const body = ctx.request.body({ type: "json" });
 		const data = await body.value;
 		
