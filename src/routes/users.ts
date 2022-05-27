@@ -25,7 +25,7 @@ router.post('/user/sale', authMiddleware, closeoutController.addCloseout);
 // Agendar una venta
 router.post('/user/shedule', authMiddleware, agendaController.addSchedule);
 
-// Obtener Agendas
+// Obtener Agenda
 router.get('/user/agendas', authMiddleware, agendaController.getAgenda);
 
 // Obtener un pedido agendado

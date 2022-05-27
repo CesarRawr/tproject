@@ -38,7 +38,6 @@ const companyController = {
 		try {
 			const companyList: any[] = [];
 
-			// No pude hacer un map asincrono :c
 			for(let i = 0; i < companyIds.length; i++) {
 				const company = await companies.findOne({ _id: new Bson.ObjectId(companyIds[i]) }, { noCursorTimeout: false } as any);
 				companyList[i] = company;

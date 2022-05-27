@@ -6,7 +6,7 @@ import db from '../services/database.ts';
 
 const closeouts = db.collection<CloseoutSchema>("closeouts");
 
-// lient Controller
+// Client Controller
 const closeoutController = {
 	addCloseout: async (ctx: Context) => {
 		const body = ctx.request.body({ type: "json" });
