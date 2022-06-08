@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://t4is.uv.mx/pos" xmlns:tns="https://t4is.uv.mx/pos" elementFormDefault="qualified">
+
+  <!-- Hacer venta -->
+  <xs:element name="VentaRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="articulo" type="xs:int" />
+        <xs:element name="cantidad" type="xs:int" />
+        <xs:element name="vendedor" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VentaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="msg" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Modificar stock -->
+  <xs:element name="ModificarStockRequest">
+     <xs:complexType>
+         <xs:sequence>
+            <xs:element name="nickname" type="xs:string" />
+            <xs:element name="tortillas" type="xs:int" />
+            <xs:element name="totopos" type="xs:int" />
+         </xs:sequence>
+      </xs:complexType>
+  </xs:element>
+  <xs:element name="ModificarStockResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="msg" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- INVENTARIO -->
+  <!-- Agregar producto -->
+   <xs:element name="AgregarProductoRequest">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="cantidad" type="xs:int"/>
+            <xs:element name="gramaje" type="xs:int"/>
+            <xs:element name="precio" type="xs:float"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="AgregarProductoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="msg" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+   </xs:element>
+
+   <!-- Obtener lista de productos -->
+   <xs:element name="BuscarProductosRequest"/>
+   <xs:element name="BuscarProductosResponse">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="inventario" maxOccurs="unbounded">
+               <xs:complexType>
+                  <xs:sequence>
+                     <xs:element name="id" type="xs:int"></xs:element>
+                     <xs:element name="nombre" type="xs:string"></xs:element>
+                     <xs:element name="cantidad" type="xs:int"></xs:element>
+                     <xs:element name="gramaje" type="xs:int"></xs:element>
+                     <xs:element name="precio" type="xs:float"></xs:element>
+                  </xs:sequence>
+               </xs:complexType>
+            </xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+
+   <xs:element name="ModificarInventarioRequest">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="nombre" type="xs:string"></xs:element>
+            <xs:element name="cantidad" type="xs:int"></xs:element>
+            <xs:element name="gramaje" type="xs:int"></xs:element>
+            <xs:element name="precio" type="xs:float"></xs:element>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ModificarInventarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="msg" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+   </xs:element>
+
+   <xs:element name="BorrarProductoRequest">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="nombre" type="xs:string"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="BorrarProductoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="msg" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+   </xs:element>
+</xs:schema>
