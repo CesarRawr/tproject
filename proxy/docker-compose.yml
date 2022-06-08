@@ -1,0 +1,9 @@
+version: "3.3"
+services:
+  proxy-service:
+    image: proxy-service
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
